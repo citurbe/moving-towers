@@ -1,5 +1,6 @@
 import React from 'react';
 import Chooser from './Chooser'
+import Controls from './Controls'
 import { setup } from '../actions/action.js'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,6 +16,7 @@ class Console extends React.Component {
     return(
       <div>
         <Chooser setStart={this.setStart.bind(this)}/>
+        <Controls />
       </div>
     );
   }

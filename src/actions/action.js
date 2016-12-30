@@ -8,4 +8,8 @@ const setup = function(value) {
   return {type:'SET_UP', payload: arr};
 };
 
+const play = function(towers) {
+
+}
+
 export { setup };
