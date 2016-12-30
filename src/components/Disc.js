@@ -17,7 +17,7 @@ const Disc = (props) => {
   }
 
   return (
-      <rect x={40} y='190' width='40' height='10' fill='blue' />
+      <rect x={40} y={props.yVal} width={size(props.value)} height='10' fill={color(props.value)} />
   );
 
 };
