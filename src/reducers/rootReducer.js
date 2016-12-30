@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-const discs = [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
-function towers(state={tower1:discs, tower2:[6, 5, 4, 3, 2, 1], tower3:[4, 3, 2, 1]}, action) {
+function towers(state={tower1:[], tower2:[], tower3:[]}, action) {
   switch(action.type) {
+    case 'SET_UP':
+      return Object.assign({}, state, {tower1:action.payload});
     default:
       return state;
   }

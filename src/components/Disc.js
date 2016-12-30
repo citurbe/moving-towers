@@ -16,15 +16,15 @@ const Disc = (props) => {
   }
 
   function size(value) {
-    return 15 + (5 * value);
+    return 5 + (4 * value);
   }
 
   function getX(size) {
-    return 55 - (size / 2);
+    return 115 - (size / 2);
   }
 
   return (
-      <rect x={getX(size(props.value))} y={props.yVal} width={size(props.value)} height='10' fill={color(props.value)} />
+      <rect x={getX(size(props.value))} y={props.yVal} width={size(props.value)} height='5' fill={color(props.value)} />
   );
 
 };
