@@ -8,7 +8,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Welcome to Tradewind Towers!</h2>
-          <Tower />
+          <Tower towerId='1' />
+          <Tower towerId='2' />
+          <Tower towerId='3' />
         </div>
       </div>
     );
