@@ -17,12 +17,12 @@ class Tower extends React.Component {
 
 
   render() {
-    
+
     return(
       <svg height='300px' width='300px' className='tower'>
         <rect x='112.5' y='2' width='5' height='100%' fill='gray' />
         {this.props[`tower${this.props.towerId}`].map((item, index) => {
-          return <Disc value={item} yVal={this.getY(index)} />;
+          return <Disc value={item} yVal={this.getY(index)} key={index} />;
         })};
         <rect x='0' y='295' height='10' width='100%' fill='gray' />
       </svg>

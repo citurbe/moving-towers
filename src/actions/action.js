@@ -8,8 +8,15 @@ const setup = function(value) {
   return {type:'SET_UP', payload: arr};
 };
 
-const play = function(towers) {
 
-}
+const show = function(towerA, towerB, towerC){
+  debugger
+  let towers = [towerA, towerB, towerC];
 
-export { setup };
+  return {type:'SHOW', payload: towers.sort(function(a, b){
+    return a.keys()[0] - b.keys()[0];
+  })
+};
+};
+
+export { setup, show };

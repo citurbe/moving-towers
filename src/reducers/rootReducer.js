@@ -3,7 +3,9 @@ import { combineReducers } from 'redux';
 function towers(state={tower1:[], tower2:[], tower3:[]}, action) {
   switch(action.type) {
     case 'SET_UP':
-      return Object.assign({}, state, {tower1:action.payload});
+      return {tower1:action.payload, tower2:[],tower3:[]};
+    case 'SHOW':
+      return {tower1:action.payload[0], tower2:action.payload[1], tower3:action.payload[2]};
     default:
       return state;
   }

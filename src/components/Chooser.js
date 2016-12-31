@@ -22,7 +22,7 @@ const Chooser = (props) => {
     <form>
       <label id='starting'> How many discs?</label>
       <input id='starting' type='text' onChange={handleChange.bind(this)} />
-      <input type='submit' value='GO!' onClick={handleClick.bind(this)} />
+      <input type='submit' value='Generate' onClick={handleClick.bind(this)} />
     </form>
   );
 
