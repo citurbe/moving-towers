@@ -20,13 +20,14 @@ class Controls extends React.Component {
   // }
 
   handleClick(event) {
+    
     this.props.hanoi(this.props.towers.tower1.length, {id: 1, discs: this.props.towers.tower1}, {id: 3, discs: this.props.towers.tower3}, {id: 2, discs: this.props.towers.tower2});
   }
 
   render() {
     return(
       <div>
-        <button onClick={this.handleClick.bind(this)}>SHOW ME WHAT YOU{"\'"}VE GOT!</button>
+        <button onClick={this.handleClick.bind(this)}>SHOW ME WHAT YOU{"'"}VE GOT!</button>
       </div>
     );
   }

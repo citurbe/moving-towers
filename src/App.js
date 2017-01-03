@@ -12,25 +12,27 @@ class App extends Component {
     source.discs = this.props[`tower${source.id}`];
     dest.discs = this.props[`tower${dest.id}`];
     aux.discs = this.props[`tower${aux.id}`];
-   //  console.log("in hanoi", source, dest, aux)
    if (n === 0){
      return;
    }
-      this.hanoi(n-1, source, aux, dest);
-      this.props.move(source, dest);
-      this.hanoi(n-1, aux, dest, source);
+    let that = this
+      setTimeout(function(){that.hanoi(n-1, source, aux, dest);}, 5000);
+      that.props.move(source, dest, aux);
+      setTimeout(function(){that.hanoi(n-1, aux, dest, source);}, 5000);
  }
 
 
   render() {
+    let towers = this.props.towers.map(function(discs){
+      return <Tower discs={discs} />;
+    });
     return (
       <div className="App">
         <div className="App-header">
           <h2>Welcome to Tradewind Towers!</h2>
         </div>
-          <Tower towerId='1'  />
-          <Tower towerId='2' />
-          <Tower towerId='3'  />
+
+          {towers}
           <Console hanoi={this.hanoi.bind(this)} />
       </div>
     );
@@ -38,7 +40,8 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return state.towers;
+  return {towers: Object.values(state.towers), tower1: state.towers.tower1, tower2: state.towers.tower2, tower3:state.towers.tower3};
+  // [[1, 2, 3], [3, 4, 5], []]
 }
 
 function mapDispatchToProps(dispatch) {
