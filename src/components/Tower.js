@@ -13,9 +13,6 @@ class Tower extends React.Component {
     return 295 - (5 * (value + 1));
   }
 
-
-
-
   render() {
 
     return(

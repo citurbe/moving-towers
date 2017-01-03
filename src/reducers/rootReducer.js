@@ -1,11 +1,21 @@
 import { combineReducers } from 'redux';
 
-function towers(state={tower1:[], tower2:[], tower3:[]}, action) {
+function towers(state={tower1:[], tower2:[], tower3:[], stateID:0}, action) {
   switch(action.type) {
     case 'SET_UP':
-      return {tower1:action.payload, tower2:[],tower3:[]};
-    case 'SHOW':
-      return {tower1:action.payload[0], tower2:action.payload[1], tower3:action.payload[2]};
+      return {tower1:action.payload, tower2:[],tower3:[], stateID:0};
+    case 'MOVE':
+      let to = action.payload.to;
+      let from = action.payload.from;
+      to.discs.push(from.discs.pop());
+      let changeObject = {};
+      changeObject[`tower${from.id}`] = from.discs;
+      changeObject[`tower${to.id}`] = to.discs;
+      let newStateID = ++state.stateID
+      changeObject.stateID = newStateID
+      let newState = Object.assign({}, state, changeObject);
+      console.log(newState);
+      return newState;
     default:
       return state;
   }

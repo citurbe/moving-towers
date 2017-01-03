@@ -16,7 +16,7 @@ class Console extends React.Component {
     return(
       <div>
         <Chooser setStart={this.setStart.bind(this)}/>
-        <Controls />
+        <Controls hanoi={this.props.hanoi.bind(this)} />
       </div>
     );
   }

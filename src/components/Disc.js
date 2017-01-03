@@ -3,7 +3,7 @@ import React from 'react';
 const Disc = (props) => {
 
   function color(value) {
-    if (value % 4 == 0) {
+    if (value % 4 === 0) {
       return 'orange';
     }
     if (value % 3 === 0){

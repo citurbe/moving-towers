@@ -9,14 +9,10 @@ const setup = function(value) {
 };
 
 
-const show = function(towerA, towerB, towerC){
-  debugger
-  let towers = [towerA, towerB, towerC];
-
-  return {type:'SHOW', payload: towers.sort(function(a, b){
-    return a.keys()[0] - b.keys()[0];
-  })
-};
+const move = function(from, to){
+  return {type:'MOVE', payload: {from:from, to:to}};
 };
 
-export { setup, show };
+
+
+export { setup, move };
