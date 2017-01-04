@@ -20,8 +20,8 @@ class Controls extends React.Component {
   // }
 
   handleClick(event) {
-    
-    this.props.hanoi(this.props.towers.tower1.length, {id: 1, discs: this.props.towers.tower1}, {id: 3, discs: this.props.towers.tower3}, {id: 2, discs: this.props.towers.tower2});
+
+    this.props.hanoi();
   }
 
   render() {

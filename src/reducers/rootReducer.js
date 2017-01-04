@@ -7,14 +7,14 @@ function towers(state={tower1:[], tower2:[], tower3:[]}, action) {
     case 'MOVE':
       let to = action.payload.to;
       let from = action.payload.from;
-      let aux = action.payload.aux;
+      console.log(from, to)
       to.discs.push(from.discs.pop());
       let changeObject = {};
       changeObject[`tower${from.id}`] = [...from.discs];
       changeObject[`tower${to.id}`] = [...to.discs];
-      changeObject[`tower${aux.id}`] = [...aux.discs];
+
       let newState = Object.assign({}, state, changeObject);
-      console.log(newState);
+      console.log(newState)
       return newState;
     default:
       return state;

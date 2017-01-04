@@ -9,8 +9,8 @@ const setup = function(value) {
 };
 
 
-const move = function(from, to, aux){
-  return {type:'MOVE', payload: {from:from, to:to, aux:aux}};
+const move = function(from, to){
+  return {type:'MOVE', payload: {from:from, to:to}};
 };
 
 
