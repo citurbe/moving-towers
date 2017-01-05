@@ -2,4 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url(../assets/hanoi.jpg);
+  background-size: cover;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, .85);
 }

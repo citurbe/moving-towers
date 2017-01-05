@@ -10,15 +10,13 @@ class App extends Component {
 
 
  hanoi() {
-   // direction of rotation of the smallest disk
-
-   var speedFactor = 100;
+   //this is an iterative version of the classic hanoi solution, since it's much easier to control the timing on iteration
    var towers = this.props.towers;
    var totalDisks = towers[0].length;
    var dir = (totalDisks % 2 === 0) ? 1 : -1;
    var i, towerMin;
 
-   // towerMin will point to rod with smallest disk
+   // towerMin will point to tower with smallest disk
    towerMin = 0;
 
    // we need (2^numberOfDisks - 1) moves
@@ -90,9 +88,10 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to Tradewind Towers!</h2>
         </div>
-
+        <div className='container'>
           {towers}
           <Console hanoi={this.hanoi.bind(this)} />
+        </div>
       </div>
     );
   }
@@ -100,7 +99,6 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {towers: Object.values(state.towers), speed:state.speed, status:state.status};
-  // [[1, 2, 3], [3, 4, 5], []]
 }
 
 function mapDispatchToProps(dispatch) {

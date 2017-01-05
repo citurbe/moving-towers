@@ -54,10 +54,15 @@ class Controls extends React.Component {
     else {
       pp = 'Pause';
     }
+    let warning = <br></br>;
+    if (this.props.towers.tower1.length > 20){
+      warning = "Just so you know, this is going to take a while";
+    }
 
 
     return(
       <div>
+        <p>{warning}</p>
         <button onClick={this.handleClick.bind(this)}>SHOW ME WHAT YOU{"'"}VE GOT!</button>
         <button onClick={this.speedUp.bind(this)}>{memo}</button>
         <button onClick={this.playPause.bind(this)}>{pp}</button>

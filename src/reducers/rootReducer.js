@@ -12,7 +12,6 @@ function towers(state={tower1:[], tower2:[], tower3:[]}, action) {
       changeObject[`tower${from.id}`] = [...from.discs];
       changeObject[`tower${to.id}`] = [...to.discs];
       return Object.assign({}, state, changeObject);
-
     case 'RESET':
       return {tower1:[], tower2:[], tower3:[]};
     default:
