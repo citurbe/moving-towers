@@ -63,7 +63,7 @@ class Controls extends React.Component {
     return(
       <div>
         <p>{warning}</p>
-        <button onClick={this.handleClick.bind(this)}>SHOW ME WHAT YOU{"'"}VE GOT!</button>
+        <button onClick={this.handleClick.bind(this)}>GO!</button>
         <button onClick={this.speedUp.bind(this)}>{memo}</button>
         <button onClick={this.playPause.bind(this)}>{pp}</button>
         <button onClick={this.reset.bind(this)}>Reset</button>
