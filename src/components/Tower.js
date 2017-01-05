@@ -14,7 +14,6 @@ class Tower extends React.Component {
     let discs = this.props.discs.map(function(item, index){
       return <Disc value={item} yVal={this.getY(index)} key={index} />;
     }, this);
-    // debugger;
     return(
       <svg height='300px' width='300px' className='tower'>
         <rect x='112.5' y='2' width='5' height='100%' fill='gray' />
@@ -25,10 +24,5 @@ class Tower extends React.Component {
   }
 
 }
-
-// function mapStateToProps(state) {
-//   // debugger;
-//   return state.towers;
-// }
 
 export default Tower;
