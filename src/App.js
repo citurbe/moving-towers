@@ -51,7 +51,7 @@ class App extends Component {
    var moveSmallest = true;
    i = 0;
    const interval = setInterval(()=> {
-       setTimeout(()=>{towers = this.props.towers;}, 3000);
+       towers = this.props.towers;
 
        if (moveSmallest) {
          var oldTowerMin = towerMin;
@@ -85,7 +85,7 @@ class App extends Component {
        clearInterval(interval);
      }
 
-   }, 8000);
+   }, 500);
 
 
    function topDiskSize(towerIndex) {
