@@ -49,12 +49,9 @@ class App extends Component {
    var prev = [2, 0, 1];
 
    var moveSmallest = true;
-
-   for (i = 0; i < numberOfMoves; i++) {
-     let that = this;
-     setTimeout(function(){
-       towers = [that.props.towers[0].discs, that.props.towers[1].discs, that.props.towers[2].discs];
-     }, 5000);
+   i = 0;
+   const interval = setInterval(()=> {
+       setTimeout(()=>{towers = this.props.towers;}, 3000);
 
        if (moveSmallest) {
          var oldTowerMin = towerMin;
@@ -83,7 +80,12 @@ class App extends Component {
          }
      }
      moveSmallest = !moveSmallest;
-   }
+     i++;
+     if (i === numberOfMoves){
+       clearInterval(interval);
+     }
+
+   }, 8000);
 
 
    function topDiskSize(towerIndex) {
