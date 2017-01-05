@@ -13,6 +13,22 @@ const move = function(from, to){
   return {type:'MOVE', payload: {from:from, to:to}};
 };
 
+const setSpeed = function(value) {
+  return {type:'SPEED', payload: value};
+};
+
+const pause = function() {
+  return {type:'PAUSE'};
+};
+
+const play = function() {
+  return {type:'PLAY'};
+};
+
+const reset = function() {
+  return {type:'RESET'};
+}
 
 
-export { setup, move };
+
+export { setup, move, setSpeed, play, pause, reset };

@@ -11,22 +11,39 @@ function towers(state={tower1:[], tower2:[], tower3:[]}, action) {
       let changeObject = {};
       changeObject[`tower${from.id}`] = [...from.discs];
       changeObject[`tower${to.id}`] = [...to.discs];
+      return Object.assign({}, state, changeObject);
 
-      let newState = Object.assign({}, state, changeObject);
-      console.log(newState)
-      return newState;
+    case 'RESET':
+      return {tower1:[], tower2:[], tower3:[]};
     default:
       return state;
   }
 }
 
-function speed(state=0, action) {
+function speed(state=950, action) {
   switch(action.type) {
+    case 'SPEED':
+      return action.payload;
+    case 'RESET':
+      return 950;
     default:
       return state;
   }
 }
 
-const rootReducer = combineReducers({towers, speed});
+function status(state='ready', action) {
+  switch(action.type) {
+    case 'PAUSE':
+      return 'stop';
+    case 'PLAY':
+      return 'go';
+    case 'RESET':
+      return 'ready';
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({towers, speed, status});
 
 export default rootReducer;

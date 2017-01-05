@@ -8,31 +8,11 @@ import { bindActionCreators } from 'redux';
 
 class App extends Component {
 
- //  hanoi(n, source, dest, aux){
- //    // source.discs = this.props[`tower${source.id}`];
- //    // dest.discs = this.props[`tower${dest.id}`];
- //    // aux.discs = this.props[`tower${aux.id}`];
- //
- //
- //   if (n === 1){
- //     this.props.move(source, dest, aux);
- //   }
- //   else {
- //      let that = this;
- //      setTimeout(function(){
- //      that.hanoi(n-1, source, aux, dest);
- //      new Promise(resolve=>{
- //        that.props.move(source, dest, aux);
- //      }).then(function(){
- //        that.hanoi(n-1, aux, dest, source);
- //      })
- //    }, 3000);
- //
- //    }
- // }
 
  hanoi() {
    // direction of rotation of the smallest disk
+
+   var speedFactor = 100;
    var towers = this.props.towers;
    var totalDisks = towers[0].length;
    var dir = (totalDisks % 2 === 0) ? 1 : -1;
@@ -50,9 +30,9 @@ class App extends Component {
 
    var moveSmallest = true;
    i = 0;
-   const interval = setInterval(()=> {
+   const makeOneMove = () => {
        towers = this.props.towers;
-
+       if (this.props.status !== 'stop'){
        if (moveSmallest) {
          var oldTowerMin = towerMin;
          // in JS -1 % 3 === -1, we add 3 to get positive result
@@ -80,13 +60,17 @@ class App extends Component {
          }
      }
      moveSmallest = !moveSmallest;
-     i++;
-     if (i === numberOfMoves){
+     if (this.props.status !== 'stop') {
+       i++;
+     }
+     clearInterval(interval);
+     interval = setInterval(makeOneMove, this.props.speed);
+     if (i === numberOfMoves || this.props.status === 'ready'){
        clearInterval(interval);
      }
-
-   }, 500);
-
+   };
+   };
+   var interval = setInterval(makeOneMove, this.props.speed);
 
    function topDiskSize(towerIndex) {
      if (towers[towerIndex].length === 0) return 500;
@@ -115,7 +99,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return {towers: Object.values(state.towers), tower1: state.towers.tower1, tower2: state.towers.tower2, tower3:state.towers.tower3};
+  return {towers: Object.values(state.towers), speed:state.speed, status:state.status};
   // [[1, 2, 3], [3, 4, 5], []]
 }
 
