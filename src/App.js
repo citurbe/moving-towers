@@ -86,7 +86,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to Tradewind Towers!</h2>
+          <h2>Welcome to Moving Towers!</h2>
         </div>
         <div className='container'>
           {towers}
